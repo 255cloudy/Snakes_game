@@ -23,6 +23,10 @@ class Snake(pygame.sprite.Sprite):
         self.surf = pygame.Surface((10, 10))
         self.rect = self.surf.get_rect()
         self.surf.fill((255, 255, 255))
+        self.right = self.rect.right
+        self.left = self.rect.left
+        self.top = self.rect.right
+        self.bottom = self.rect.bottom
         self.direction = right
 
     # overriding the update() function  to update the sprites position
@@ -40,6 +44,7 @@ class Food(pygame.sprite.Sprite):
 
 segs = pygame.sprite.Group()
 
+
 # this function will create a segment and assign its position on the snake
 def create_seg():
     seg = Snake()
@@ -53,11 +58,11 @@ def update_segs(direction):
 
 
 # this function ensures that the snake remains within the screen
-def constraint(object):
-    if object.right> width:
-        object.right = 0
-    if object.top > height:
-        object.top = 0
+def constraint(obj):
+    if obj.right > width:
+        obj.right = 0
+    if obj.top > height:
+        obj.top = 0
 
 
 if __name__ == '__main__':
