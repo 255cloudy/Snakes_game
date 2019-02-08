@@ -7,7 +7,7 @@ sp_val = 1
 speed = [1, 1]
 width = 800
 height = 400
-food_color = [255, 100, 100]
+food_color = [255, 105, 100]
 size = (width, height)
 up = [0, -sp_val]
 down = [0, sp_val]
@@ -67,6 +67,7 @@ class Food(pygame.sprite.Sprite):
 segs = pygame.sprite.Group()
 snake = Snake()
 
+
 # this function will create a segment and assign its position on the snake
 def create_seg():
     seg = Segment()
@@ -82,8 +83,9 @@ def create_seg():
         if direct == right:
             seg.x = snake.head.x - (segs_len)
         if direct == left:
-            seg.x = snake.head.y+(segs_len)
+            seg.x = snake.head.x+ (segs_len)
     segs.add(seg)
+    print((snake.head.x, snake.head.y), (seg.x, seg.y))
 
 
 # this function helps us create a food object
